@@ -88,7 +88,6 @@ let db;
         FROM Users
         LEFT JOIN WalkRatings ON Users.user_id = WalkRatings.walker_id
         LEFT JOIN WalkRequests ON WalkRatings.request_id = WalkRequests.request_id
-
         WHERE Users.role = 'walker'
         GROUP BY Users.user_id
       `);
