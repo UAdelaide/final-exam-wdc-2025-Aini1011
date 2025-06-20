@@ -13,7 +13,9 @@
           stage: 0
         };
       },
-
+      async mounted() {
+        await this.fetchDog();
+      },
       
       async created() {
         const res = await fetch('https://dog.ceo/api/breeds/image/random');
