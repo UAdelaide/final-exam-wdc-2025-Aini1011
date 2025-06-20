@@ -31,7 +31,7 @@ let db;
       database: 'DogWalkService'
     });
 
-    
+    await db.exe
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
