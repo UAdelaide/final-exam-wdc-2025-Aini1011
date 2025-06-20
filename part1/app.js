@@ -87,7 +87,8 @@ let db;
           COUNT(DISTINCT WalkRequests.request_id) AS completed_walks
         FROM Users
         LEFT JOIN WalkRatings ON Users.user_id = WalkRatings.walker_id
-        LEFT JOIN WalkRequests ON Users.user_id = WalkRequests.request_id
+        LEFT JOIN WalkRequests ON WalkRatings.request_id = WalkRequests.request_id
+
         WHERE Users.role = 'walker'
         GROUP BY Users.user_id
       `);
@@ -97,7 +98,7 @@ let db;
       res.status(500).json({ error: 'Failed to fetch walker summary' });
     }
   });
-  
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
