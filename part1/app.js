@@ -10,6 +10,26 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+let db;
+
+(async () => {
+  try {
+    const connection = await mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: ''
+    });
+
+    await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
+    await connection.end();
+
+    db = await mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'DogWalkService'
+    });
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
