@@ -24,6 +24,9 @@
         },
         next() {
             this.stage++;
+            if (this.stage === 3) {
+              this.fetchDog();
+              this.stage = 0;
 
 
         const data = await res.json();
