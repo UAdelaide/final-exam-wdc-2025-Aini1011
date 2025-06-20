@@ -30,6 +30,8 @@ let db;
       password: '',
       database: 'DogWalkService'
     });
+
+    
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
