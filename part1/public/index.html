@@ -22,6 +22,8 @@
           const data = await res.json();
           this.dogImage = data.message;
         },
+        next() {
+            this.stage++;
 
 
         const data = await res.json();
