@@ -16,7 +16,8 @@
       async mounted() {
         await this.fetchDog();
       },
-      
+      methods: {
+        async fetchDog() {
       async created() {
         const res = await fetch('https://dog.ceo/api/breeds/image/random');
         const data = await res.json();
