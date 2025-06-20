@@ -31,7 +31,16 @@ let db;
       database: 'DogWalkService'
     });
 
-    await db.execute()
+    await db.execute(`
+        INSERT IGNORE INTO Users (username, email, password_hash, role)
+        VALUES ('alice123', 'alice@example.com', 'hashed123', 'owner')
+      `);
+
+    } catch (err) {
+      console.error('Database setup error:', err);
+    }
+  })();
+  
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
