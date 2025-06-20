@@ -40,6 +40,21 @@ let db;
       console.error('Database setup error:', err);
     }
   })();
+
+  app.get('/api/dogs', async (req, res) => {
+    try {
+      const [rows] = await db.execute(`
+        SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username
+        FROM Dogs
+        JOIN Users ON Dogs.owner_id = Users.user_id
+      `);
+      res.json(rows);
+    } catch (error) {
+      console.error('Error fetching dogs:', error);
+      res.status(500).json({ error: 'Failed to fetch dogs' });
+    }
+  });
+
   
 app.use(express.static(path.join(__dirname, 'public')));
 
