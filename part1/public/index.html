@@ -27,10 +27,8 @@
             if (this.stage === 3) {
               this.fetchDog();
               this.stage = 0;
-
-
-        const data = await res.json();
-        this.dogImage = data.message;
+            }
+        }
       }
     }).mount('#app');
   </script>
