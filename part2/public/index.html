@@ -48,7 +48,7 @@
             const result = await res.json();
 
             if (!res.ok) throw new Error(result.error || 'Login failed');
-            
+
             // Redirect based on role
             if (result.user.role === 'owner') {
               window.location.href = 'owner-dashboard.html';
@@ -56,6 +56,7 @@
               window.location.href = 'walker-dashboard.html';
             }
           } catch (error) {
+            // If login fails, show alert
             alert('Login failed: ' + err.message);
           }
         }
