@@ -105,7 +105,9 @@
           }
         }
       },
-
+      // Load dogs when page loads
+      mounted() {
+        this.loadDogs();
       }
     }).mount('#app');
   </script>
