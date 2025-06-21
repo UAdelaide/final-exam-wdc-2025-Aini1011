@@ -87,7 +87,25 @@
 
         //
         async loadDogs() {
-          
+          try {
+            const res = await fetch('/api/dogs');
+            const data = await res.json();
+
+            // Add random photo from external API
+            this.dogs = await Promise.all(data.map(async dog => {
+              try {
+                const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
+                const imgData = await imgRes.json();
+                return { ...dog, image: imgData.message };
+              } catch {
+                return { ...dog, image: 'https://via.placeholder.com/100x100?text=Dog' };
+              }
+            }));
+          } catch (err) {
+            console.error('Failed to load dogs:', err);
+          }
+        }
+      },
       }
     }).mount('#app');
   </script>
