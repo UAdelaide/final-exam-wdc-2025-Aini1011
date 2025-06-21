@@ -90,7 +90,6 @@
           try {
             const res = await fetch('/api/dogs');
             const data = await res.json();
-
             // Add random photo from external API
             this.dogs = await Promise.all(data.map(async dog => {
               try {
@@ -106,6 +105,7 @@
           }
         }
       },
+
       }
     }).mount('#app');
   </script>
