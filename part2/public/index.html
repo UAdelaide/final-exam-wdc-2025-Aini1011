@@ -36,6 +36,7 @@
         };
       },
       methods: {
+        // Called when user clicks "Log In"
         async login() {
           try {
             const res = await fetch('/api/users/login', {
