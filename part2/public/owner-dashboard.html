@@ -120,7 +120,7 @@
         async function logout() {
           try {
             await fetch('/api/users/logout', { method: 'POST' });
-            window.location.href = 'index.html'; // 返回登录页
+            window.location.href = 'index.html'; 
           } catch (err) {
             alert('Logout failed');
           }
@@ -136,7 +136,7 @@
           message,
           error,
           submitWalkRequest,
-          logout 
+          logout //add logout
         };
       }
     }).mount('#app');
