@@ -69,11 +69,11 @@
             error.value = err.message;
           }
         }
-        
+
         // Modified applyToWalk function
         async function applyToWalk(requestId) {
           try {
-            const currentUser = await getCurrentUser();
+            const currentUser = await getCurrentUser(); // fetch current user info
             if (!currentUser) throw new Error('User not found');
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
