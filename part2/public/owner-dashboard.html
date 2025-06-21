@@ -116,11 +116,11 @@
             message.value = '';
           }
         }
-
+              // Logout function to end session and redirect
         async function logout() {
           try {
             await fetch('/api/users/logout', { method: 'POST' });
-            window.location.href = 'index.html'; 
+            window.location.href = 'index.html';
           } catch (err) {
             alert('Logout failed');
           }
