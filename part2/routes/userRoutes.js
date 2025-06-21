@@ -73,7 +73,7 @@ router.post('/logout', (req, res) => {
   });
 });
 
-// GET /api/users/my-dogs - Get dogs owned by current logged-in user
+// GET /api/users/my-dogs - Get dogs owned by current login user
 router.get('/my-dogs', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
@@ -83,7 +83,7 @@ router.get('/my-dogs', async (req, res) => {
     const [rows] = await db.query(
       'SELECT dog_id, name FROM Dogs WHERE owner_id = ?',
       [req.session.user.id]
-  
+
 
 
 module.exports = router;
