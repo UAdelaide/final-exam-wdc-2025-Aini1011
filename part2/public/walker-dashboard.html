@@ -50,7 +50,7 @@
         // Add function getCurrentUser() to get the current loggin user
         async function getCurrentUser() {
           try{
-            const res = await fetch(/api/users/me);
+            const res = await fetch('/api/users/me');
             if (!res.ok) throw new Error('Not logged in');
             return await res.json();
           } catch (err){
