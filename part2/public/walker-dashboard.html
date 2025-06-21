@@ -75,7 +75,7 @@
             message.value = '';
           }
         }
-
+        // Logout function to end session and redirect
         async function logout() {
           try {
             await fetch('/api/users/logout', { method: 'POST' });
@@ -93,7 +93,8 @@
           walks,
           message,
           error,
-          applyToWalk
+          applyToWalk,
+          
         };
       }
     }).mount('#app');
