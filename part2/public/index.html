@@ -88,7 +88,7 @@
         //Add loadDogs() Method - Load dogs and get random photos
         async loadDogs() {
           try {
-            const res = await fetch('/api/user/dogs');
+            const res = await fetch('/api/users/dogs');
             const data = await res.json();
             // Add random photo from external API
             this.dogs = await Promise.all(data.map(async dog => {
